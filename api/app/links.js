@@ -21,23 +21,9 @@ router.get('/:shortenedUrl', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    if (!req.body.originalUrl){
-      res.status(404).send({message: 'Enter your Url!'});
-    }
-
-    let newShortenedUrl = null;
-
-    const shortUrl = await Link.findOne({shortenedUrl: nanoid(6)});
-
-    if (shortUrl) {
-      return res.send({message: 'This Url already exists'});
-    } else {
-      newShortenedUrl = nanoid(6);
-    }
-
     const link = {
       originalUrl: req.body.originalUrl,
-      shortenedUrl: newShortenedUrl,
+      shortenedUrl: shortUrl,
     }
 
     const linkObj = new Link(link);
