@@ -2,11 +2,26 @@
   <h1 class="block-title__title">Shorten your link!</h1>
 </div>
 <div class="form">
-  <mat-form-field
-    appearance="outline"
-    class="form__wrapper">
-    <mat-label class="form__label">Enter your Url</mat-label>
-    <input class="form__input" matInput required>
-  </mat-form-field>
-  <button class="form__btn" mat-raised-button>Shorten</button>
+  <mat-card>
+    <form (ngSubmit)="onSend()" #form="ngForm" fxLayout="column">
+      <mat-form-field
+        appearance="outline"
+        class="form__wrapper">
+        <mat-label class="form__label">Enter your Url</mat-label>
+        <input class="form__input" name="originalUrl" matInput required ngModel appUrl>
+      </mat-form-field>
+      <small *ngIf="form.invalid && form.touched" >Enter your Url</small>
+      <button type="submit" class="form__btn" [disabled]="form.invalid" mat-raised-button>Shorten</button>
+    </form>
+  </mat-card>
+</div>
+<div>
+  <mat-card *ngIf="shortenedUrl">
+    <mat-card-content>
+      <div class="short-url">
+        <h3 class="short-url__title">Your link now looks like this:</h3>
+        <a class="short-url__link" [href]="apiUrl + '/links/' + shortenedUrl" target="_blank">http://localhost:8000/{{ shortenedUrl }}</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
