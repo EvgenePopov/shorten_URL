@@ -14,7 +14,7 @@ export function phoneValidator (): ValidatorFn{
 }
 
 @Directive({
-  selector: '[appUrl]',
+  selector: '[Validator]',
   providers: [{
     provide: NG_VALIDATORS,
     useExisting: ValidatorDirective,

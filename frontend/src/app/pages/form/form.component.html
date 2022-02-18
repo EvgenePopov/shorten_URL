@@ -8,7 +8,7 @@
         appearance="outline"
         class="form__wrapper">
         <mat-label class="form__label">Enter your Url</mat-label>
-        <input class="form__input" name="originalUrl" matInput required ngModel appUrl>
+        <input class="form__input" name="originalUrl" matInput required ngModel Validator>
       </mat-form-field>
       <small *ngIf="form.invalid && form.touched" >Enter your Url</small>
       <button type="submit" class="form__btn" [disabled]="form.invalid" mat-raised-button>Shorten</button>
