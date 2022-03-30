@@ -2,3 +2,8 @@
 Для запуска данного приложения у себя локально вам надо будет сделать клон репозитория после чего установить node_modules на BackEnd и FrontEnd.
 После чего можно будет открыть приложение.
 Стек технологий: Angular , Angular Material , Node.js , Express
+# Запуск Backend
+npm run seed  
+npm run dev
+# Запуск FrontEnd
+npm start или ng serve
